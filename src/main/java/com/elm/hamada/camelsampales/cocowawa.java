@@ -40,7 +40,7 @@ public class cocowawa {
         camelContext.start();
         /* wait indefinitely */
 
-        camelContext.createProducerTemplate().sendBody("direct:Q_BATCH_CONTRACT_CREATION", json);
+        camelContext.createProducerTemplate().sendBodyAndHeader("direct:Q_BATCH_CONTRACT_CREATION", json,"endDate","201902101354");
         Object obj = new Object();
         synchronized (obj) {
             obj.wait();
